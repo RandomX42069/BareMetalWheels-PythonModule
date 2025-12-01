@@ -4,4 +4,4 @@ if ($varscall) {
     & $varscall
 }
 
-nuitka --msvc --standalone --onefile bareMetal.py
+nuitka --msvc=latest --standalone --onefile bareMetal.py

@@ -19,6 +19,7 @@ def copy_python_files(src_dir, dst_dir):
                 shutil.copy(os.path.join(root, file), os.path.join(target_root, file))
 
 def copy_library(directory):
+    
     directory = os.path.abspath(directory)
     if not os.path.isdir(directory):
         print(f"Library directory doesn't exist: {directory}")
@@ -32,6 +33,7 @@ def copy_library(directory):
     with open(setup_path, "r", encoding="utf-8") as f:
         data = json.load(f)
 
+    pythonDir = data.get("python", pythonDir)
     name = data.get("name", "unnamed_pkg")
     entryPoint = os.path.join(directory, data.get("entry", ""))
 

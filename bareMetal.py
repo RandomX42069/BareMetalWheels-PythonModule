@@ -1,6 +1,6 @@
 import os, shutil, sys, pathlib, json
 
-pythonDir = os.path.join(pathlib.Path(sys.executable).parent, "Lib", "site-packages")
+pythonnDir = os.path.join(pathlib.Path(sys.executable).parent, "Lib", "site-packages")
 
 def add_init_files(folder):
     for root, dirs, files in os.walk(folder):
@@ -33,7 +33,7 @@ def copy_library(directory):
     with open(setup_path, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    pythonDir = data.get("python", pythonDir)
+    pythonDir = data.get("python", pythonnDir)
     name = data.get("name", "unnamed_pkg")
     entryPoint = os.path.join(directory, data.get("entry", ""))
 
